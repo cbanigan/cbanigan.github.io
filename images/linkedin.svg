@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1"
-	 id="svg2" inkscape:output_extension="org.inkscape.output.svg.inkscape" inkscape:version="0.47 r22583" sodipodi:docname="linkedin.svg" sodipodi:version="0.32" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256"
-	 style="enable-background:new 0 0 256 256;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-</style>
-<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="138.80354" inkscape:cy="94.798647" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="674" inkscape:window-maximized="0" inkscape:window-width="853" inkscape:window-x="1" inkscape:window-y="281" inkscape:zoom="0.24748737" pagecolor="#ffffff" showgrid="false">
-	</sodipodi:namedview>
-<path class="st0" d="M210,10.5H46c-19.6,0-35.5,15.9-35.5,35.5v164c0,19.6,15.9,35.5,35.5,35.5h164c19.6,0,35.5-15.9,35.5-35.5V46
-	C245.5,26.4,229.6,10.5,210,10.5z M81.6,207.8H46.3V101.5h35.3V207.8z M64,87L64,87l-0.2,0c-11.9,0-19.5-8.2-19.5-18.4
-	c0-10.4,7.9-18.4,20-18.4c12.1,0,19.5,7.9,19.7,18.4C83.9,78.8,76.3,87,64,87z M209,207.8h-35.3v-56.9c0-14.3-5.1-24-17.9-24
-	c-9.8,0-15.6,6.6-18.1,12.9c-0.9,2.3-1.2,5.4-1.2,8.6v59.3h-35.3c0,0,0.5-96.3,0-106.3h35.3v15c4.7-7.2,13.1-17.5,31.8-17.5
-	c23.2,0,40.7,15.2,40.7,47.8V207.8z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="enable-background:new 0 0 256 256" xml:space="preserve"><path d="M210 10.5H46c-19.6 0-35.5 15.9-35.5 35.5v164c0 19.6 15.9 35.5 35.5 35.5h164c19.6 0 35.5-15.9 35.5-35.5V46c0-19.6-15.9-35.5-35.5-35.5zM81.6 207.8H46.3V101.5h35.3v106.3zM64 87h-.2c-11.9 0-19.5-8.2-19.5-18.4 0-10.4 7.9-18.4 20-18.4S83.8 58.1 84 68.6C83.9 78.8 76.3 87 64 87zm145 120.8h-35.3v-56.9c0-14.3-5.1-24-17.9-24-9.8 0-15.6 6.6-18.1 12.9-.9 2.3-1.2 5.4-1.2 8.6v59.3h-35.3s.5-96.3 0-106.3h35.3v15c4.7-7.2 13.1-17.5 31.8-17.5 23.2 0 40.7 15.2 40.7 47.8v61.1z" style="fill:#fff"/></svg>
