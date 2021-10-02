@@ -9,8 +9,21 @@
     <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="og:description">
     <link rel="preload" as="image" href="../images/projects-background.jpg">
 	<link rel="stylesheet" media="screen" href="../style/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Julius+Sans+One">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i">
+
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Julius+Sans+One">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Julius+Sans+One">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i">
+    </noscript>
 </head>
 <body>
 	<div id="wrapper">
