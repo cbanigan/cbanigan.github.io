@@ -393,6 +393,10 @@ video {
     padding-right: 30px;
 }
 
+.item-description-list {
+    margin-left: 1em;
+}
+
 .resume-item-sidebar {
     flex: 1;
     color: #666666;
