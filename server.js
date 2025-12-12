@@ -5,34 +5,41 @@ const path = require("path");
 const server = http.createServer((req, res) => {
   let filePath = req.url;
 
-  // Handle root path
   if (filePath === "/" || filePath === "") {
     filePath = "/index.html";
   }
 
-  // Handle clean URLs by adding .html extension for routes without extensions
-  if (!filePath.includes(".") && !filePath.endsWith("/")) {
-    // Special case: /projects serves projects/index.html
-    if (filePath === "/projects") {
-      filePath = "/projects/index.html";
+  // Handle clean URLs generically
+  else if (!filePath.includes(".")) {
+    if (filePath.endsWith("/")) {
+      filePath += "index.html";
     }
-    // All other routes get .html appended
+    // For other paths, first try adding .html, then try /index.html
     else {
-      filePath += ".html";
-    }
-  }
-  // Handle directory routes ending with /
-  else if (filePath.endsWith("/")) {
-    // /projects/ serves projects/index.html
-    if (filePath === "/projects/") {
-      filePath = "/projects/index.html";
+      const htmlPath = filePath + ".html";
+      const indexPath = filePath + "/index.html";
+
+      const fullHtmlPath = path.join(__dirname, htmlPath);
+      const fullIndexPath = path.join(__dirname, indexPath);
+
+      // Use synchronous check since we're in async context
+      // In production, this would be cached or pre-computed
+      try {
+        require("fs").accessSync(fullHtmlPath, require("fs").constants.F_OK);
+        filePath = htmlPath;
+      } catch {
+        try {
+          require("fs").accessSync(fullIndexPath, require("fs").constants.F_OK);
+          filePath = indexPath;
+        } catch {
+          filePath = htmlPath; // Default to .html even if it doesn't exist (will 404)
+        }
+      }
     }
   }
 
-  // Remove leading slash and resolve to actual file path
   filePath = path.join(__dirname, filePath);
 
-  // Check if file exists
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       res.writeHead(404, { "Content-Type": "text/plain" });
@@ -40,7 +47,6 @@ const server = http.createServer((req, res) => {
       return;
     }
 
-    // Read and serve the file
     fs.readFile(filePath, (err, data) => {
       if (err) {
         res.writeHead(500, { "Content-Type": "text/plain" });
@@ -48,7 +54,6 @@ const server = http.createServer((req, res) => {
         return;
       }
 
-      // Set content type based on file extension
       const ext = path.extname(filePath).toLowerCase();
       let contentType = "text/plain";
       if (ext === ".html") contentType = "text/html";
@@ -67,5 +72,4 @@ const server = http.createServer((req, res) => {
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-  console.log("Clean URLs supported: /about, /resume, /projects");
 });
