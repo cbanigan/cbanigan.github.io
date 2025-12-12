@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }}{% else %}Colin Banigan{% endif %}</title>
+    <meta content="{% if title %}{{ title }}{% else %}Colin Banigan{% endif %}" property="og:title">
+    <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="description">
+    <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="og:description">
+    {% if backgroundImage %}
+    <link rel="preload" as="image" href="images/{{ backgroundImage }}">
+    {% endif %}
+	<link rel="stylesheet" media="screen" href="style/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap">
+
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap">
+    </noscript>
+</head>
+<body>
+	<div id="wrapper">
+        <nav>
+            <a href="/" aria-label="homepage"><img class="logo julius" src="images/white-logo.png" alt="" width="100px" height="100px"></a>
+            <div class="menu julius">
+                <ul class="main-list">
+                    <li class="main-list-item"><a href="/">Home</a></li>
+                    <li class="main-list-item"><a href="/about"{% if page == 'about' %} ><span class="selected">About</span></a>{% else %}>About</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/projects"{% if page == 'projects' %} ><span class="selected">Projects</span></a>{% else %}>Projects</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/resume"{% if page == 'resume' %} ><span class="selected">Resume</span></a>{% else %}>Resume</a>{% endif %}</li>
+	           </ul>
+            </div>
+        </nav>
+
+        {{ content | safe }}
+
+        {% include "footer.njk" %}
+
+	</div>
+</body>
+
+</html>
