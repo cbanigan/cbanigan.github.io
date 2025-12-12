@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const server = http.createServer((req, res) => {
-  let filePath = req.url;
+  let filePath = decodeURIComponent(req.url);
 
   if (filePath === "/" || filePath === "") {
     filePath = "/index.html";
@@ -62,6 +62,10 @@ const server = http.createServer((req, res) => {
       else if (ext === ".png") contentType = "image/png";
       else if (ext === ".jpg" || ext === ".jpeg") contentType = "image/jpeg";
       else if (ext === ".svg") contentType = "image/svg+xml";
+      else if (ext === ".mp4") contentType = "video/mp4";
+      else if (ext === ".ogv") contentType = "video/ogg";
+      else if (ext === ".webm") contentType = "video/webm";
+      else if (ext === ".pdf") contentType = "application/pdf";
 
       res.writeHead(200, { "Content-Type": contentType });
       res.end(data);
