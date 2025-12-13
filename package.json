@@ -11,8 +11,8 @@
     "compile-ts": "tsc"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Colin Banigan",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "typescript": "^5.9.3"
