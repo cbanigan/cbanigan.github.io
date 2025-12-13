@@ -10,11 +10,6 @@ module.exports = function (eleventyConfig) {
   // Watch for changes
   eleventyConfig.addWatchTarget("style/");
 
-  // Allow clean URLs without file extensions
-  eleventyConfig.configureErrorReporting({
-    allowMissingExtensions: true,
-  });
-
   return {
     dir: {
       input: "pages",
