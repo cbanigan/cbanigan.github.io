@@ -6,17 +6,16 @@
 /* CSS Variables - Design Tokens */
 :root {
   /* Colors */
-  --color-bg-light: #EEEEEE;
-  --color-bg-dark: #222222;
-  --color-bg-darker: #111111;
-  --color-bg-header: #888888;
-  --color-text-nav: #CCCCCC;
-  --color-text-nav-hover: #FFFFFF;
-  --color-text-muted: #AAAAAA;
-  --color-text-secondary: #666666;
+  --color-grayscale-00: #FFFFFF;
+  --color-grayscale-10: #EEEEEE;
+  --color-grayscale-20: #CCCCCC;
+  --color-grayscale-30: #AAAAAA;
+  --color-grayscale-40: #888888;
+  --color-grayscale-50: #666666;
+  --color-grayscale-70: #222222;
+  --color-grayscale-80: #111111;
+  --color-grayscale-90: #000000;
   --color-accent: #96C502;
-  --color-white: #FFFFFF;
-  --color-black: #000000;
 
   /* Spacing */
   --spacing-s2: 2px;
@@ -56,7 +55,7 @@
 }
 
 html {
-    background-color: var(--color-bg-light);
+    background-color: var(--color-grayscale-10);
     font-size: 100%;
     font-family: 'Crimson Text', serif;
 }
@@ -73,7 +72,7 @@ html {
 
 #top-footer {
     padding: var(--spacing-s48);
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-grayscale-70);
     text-align: center;
 }
 
@@ -99,9 +98,9 @@ html {
 
 header {
     padding: 280px 0 200px 0;
-    background-color: var(--color-bg-header);
+    background-color: var(--color-grayscale-40);
     text-transform: uppercase;
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
 }
 
 .name {
@@ -122,8 +121,8 @@ header {
     padding: var(--spacing-s4);
     margin-top: var(--spacing-s4);
     font-size: var(--font-size-large);
-    border-top: 1px solid rgba(255,255,255,0.5);
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-top: 1px solid var(--color-grayscale-20);
+    border-bottom: 1px solid var(--color-grayscale-20);
     animation: var(--animation-pop-in);
     opacity: 0;
     animation-delay: .5s;
@@ -149,29 +148,29 @@ header {
 
 .main-list-item a {
     display: block;
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
     text-align: center;
     padding: var(--spacing-s16);
     text-decoration: none;
 }
 
 .selected {
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
     border-bottom: var(--border-accent);
 }
 
 .main-list-item a:link {
     text-decoration: none;
-    color: var(--color-text-nav);
+    color: var(--color-grayscale-20);
     font-style: normal;
 }
 
 .main-list-item a:visited {
-    color: var(--color-text-nav);
+    color: var(--color-grayscale-20);
 }
 
 .main-list-item a:hover {
-    color: var(--color-text-nav-hover);
+    color: var(--color-grayscale-00);
     transition: var(--transition-fast);
 }
 
@@ -187,27 +186,27 @@ header {
 
 footer {
     padding: var(--spacing-s48);
-    background-color: var(--color-bg-darker);
+    background-color: var(--color-grayscale-80);
     text-align: center;
 }
 
 .copyright {
     font-size: var(--font-size-small);
-    color: var(--color-text-muted);
+    color: var(--color-grayscale-30);
 }
 
 a:link {
     text-decoration: none;
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
 }
 
 a:visited {
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
 }
 
 a:hover {
     text-decoration: underline;
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
 }
 
 @keyframes pop-in {
@@ -230,7 +229,7 @@ a:hover {
 }
 
 .social {
-    color: var(--color-bg-light);
+    color: var(--color-grayscale-10);
     margin-top: var(--spacing-s16);
     font-size: var(--font-size-medium);
 }
@@ -249,7 +248,7 @@ a:hover {
 }
 
 .white {
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
 }
 
 .center-text {
@@ -314,7 +313,7 @@ a:hover {
 }
 
 .circle {
-    border: var(--spacing-s4) solid var(--color-white);
+    border: var(--spacing-s4) solid var(--color-grayscale-00);
     border-radius: var(--border-radius-circle);
 }
 
@@ -328,13 +327,13 @@ a:hover {
     border: var(--border-accent);
     font-size: var(--font-size-medium);
     transition: var(--transition-normal);
-    background-color: rgba(255, 255, 255, 0);
+    background-color: transparent;
 }
 
 .fancy-button:hover {
     transition: var(--transition-normal);
     background-color: var(--color-accent);
-    color: var(--color-white);
+    color: var(--color-grayscale-00);
     cursor: pointer;
 }
 
@@ -360,7 +359,7 @@ video {
 }
 
 .resume-title {
-    color: var(--color-black);
+    color: var(--color-grayscale-90);
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -390,7 +389,7 @@ video {
 }
 
 .item-description {
-    color: var(--color-text-secondary);
+    color: var(--color-grayscale-50);
     padding-top: 8px;
     padding-right: var(--spacing-s32);
 }
@@ -401,7 +400,7 @@ video {
 
 .resume-item-sidebar {
     flex: 1;
-    color: var(--color-text-secondary);
+    color: var(--color-grayscale-50);
 }
 
 
