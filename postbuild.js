@@ -1,53 +1,70 @@
 const fs = require("fs");
 const path = require("path");
 
-// Special handling for specific file renames
-const specialRenames = {
+/**
+ * Files that need special renaming (not just adding .html extension)
+ */
+const SPECIAL_RENAMES = {
   "projects-main": "projects.html",
 };
 
-function walkDirectory(dir, callback) {
-  const files = fs.readdirSync(dir);
+/**
+ * Recursively finds all files without extensions in a directory
+ */
+function findFilesWithoutExtensions(directory) {
+  const files = fs.readdirSync(directory);
+  const extensionlessFiles = [];
 
   files.forEach((file) => {
-    const fullPath = path.join(dir, file);
+    const fullPath = path.join(directory, file);
     const stat = fs.statSync(fullPath);
 
     if (stat.isDirectory()) {
-      // Recursively walk subdirectories
-      walkDirectory(fullPath, callback);
+      // Recursively search subdirectories
+      extensionlessFiles.push(...findFilesWithoutExtensions(fullPath));
     } else {
-      // Check if it's a file without extension
-      const ext = path.extname(file);
-      if (!ext && file !== '.nojekyll') {
-        // This is a file without extension (except .nojekyll)
-        callback(fullPath, file);
+      // Check if file has no extension and isn't excluded
+      const hasExtension = path.extname(file);
+      const isExcluded = file === ".nojekyll";
+
+      if (!hasExtension && !isExcluded) {
+        extensionlessFiles.push(fullPath);
       }
     }
   });
+
+  return extensionlessFiles;
 }
 
-console.log("Starting post-build file processing...");
+/**
+ * Renames a file from extensionless to .html (with special cases)
+ */
+function renameToHtml(filePath) {
+  const relativePath = path.relative("_site", filePath);
+  const finalName = SPECIAL_RENAMES[relativePath] || `${relativePath}.html`;
+  const finalPath = path.join("_site", finalName);
 
-// Walk the _site directory and rename extensionless files to .html
-walkDirectory("_site", (fullPath, filename) => {
-  // Get the relative path from _site
-  const relativePath = path.relative("_site", fullPath);
-  const destFilename = specialRenames[relativePath] || relativePath + ".html";
-  const destPath = path.join("_site", destFilename);
-
-  // Check if the destination already exists
-  if (fs.existsSync(destPath)) {
-    console.log(`Skipping ${fullPath} - ${destPath} already exists`);
+  if (fs.existsSync(finalPath)) {
+    console.log(`⏭️  Skipping ${filePath} - ${finalPath} already exists`);
     return;
   }
 
-  try {
-    fs.renameSync(fullPath, destPath);
-    console.log(`Renamed ${fullPath} to ${destPath}`);
-  } catch (error) {
-    console.error(`Error renaming ${fullPath}:`, error);
-  }
-});
+  fs.renameSync(filePath, finalPath);
+  console.log(`✅ Renamed ${filePath} → ${finalPath}`);
+}
 
-console.log("Post-build processing complete");
+/**
+ * Main post-build process: convert extensionless files to .html
+ */
+function processBuildOutput() {
+  console.log("🔄 Processing build output...");
+
+  const extensionlessFiles = findFilesWithoutExtensions("_site");
+
+  extensionlessFiles.forEach(renameToHtml);
+
+  console.log("✨ Post-build processing complete");
+}
+
+// Run the process
+processBuildOutput();
