@@ -4,8 +4,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_videos");
   eleventyConfig.addPassthroughCopy("_resume");
   eleventyConfig.addPassthroughCopy("style");
-  // Copy static HTML files
-  eleventyConfig.addPassthroughCopy("index.original.html");
   // Copy GitHub Pages marker
   eleventyConfig.addPassthroughCopy(".nojekyll");
 
