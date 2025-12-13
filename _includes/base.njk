@@ -34,9 +34,9 @@
             <div class="menu julius">
                 <ul class="main-list">
                     <li class="main-list-item"><a href="/"{% if currentPage == 'home' %} ><span class="selected">Home</span></a>{% else %}>Home</a>{% endif %}</li>
-                    <li class="main-list-item"><a href="/about"{% if currentPage == 'about' %} ><span class="selected">About</span></a>{% else %}>About</a>{% endif %}</li>
-                    <li class="main-list-item"><a href="/projects"{% if currentPage == 'projects' %} ><span class="selected">Projects</span></a>{% else %}>Projects</a>{% endif %}</li>
-                    <li class="main-list-item"><a href="/resume"{% if currentPage == 'resume' %} ><span class="selected">Resume</span></a>{% else %}>Resume</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/about/"{% if currentPage == 'about' %} ><span class="selected">About</span></a>{% else %}>About</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/projects/"{% if currentPage == 'projects' %} ><span class="selected">Projects</span></a>{% else %}>Projects</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/resume/"{% if currentPage == 'resume' %} ><span class="selected">Resume</span></a>{% else %}>Resume</a>{% endif %}</li>
 	           </ul>
             </div>
         </nav>
@@ -46,106 +46,6 @@
         {% include "footer.njk" %}
 
 	</div>
-
-    <script>
-    // Clean URL routing for GitHub Pages
-    (function() {
-        // Define route mappings from clean URLs to actual files
-        var routes = {
-            '/about': '/about',
-            '/projects': '/projects',
-            '/resume': '/resume',
-            '/research': '/research',
-            '/battleship': '/battleship',
-            '/after-effects': '/after-effects'
-        };
-
-        function handleRoute(path) {
-            // Remove trailing slash if present
-            path = path.replace(/\/$/, '');
-
-            if (routes[path] && path !== '/') {
-                // Fetch the HTML content
-                fetch(routes[path])
-                    .then(function(response) {
-                        if (!response.ok) throw new Error('Page not found');
-                        return response.text();
-                    })
-                    .then(function(html) {
-                        // Parse the HTML
-                        var parser = new DOMParser();
-                        var doc = parser.parseFromString(html, 'text/html');
-
-                        // Extract and update the page content
-                        var newWrapper = doc.querySelector('#wrapper');
-                        var currentWrapper = document.querySelector('#wrapper');
-
-                        if (newWrapper && currentWrapper) {
-                            currentWrapper.innerHTML = newWrapper.innerHTML;
-                        }
-
-                        // Update title
-                        var newTitle = doc.querySelector('title');
-                        if (newTitle) {
-                            document.title = newTitle.textContent;
-                        }
-
-                        // Update meta tags
-                        var metaTags = doc.querySelectorAll('meta[property]');
-                        metaTags.forEach(function(meta) {
-                            var existing = document.querySelector('meta[property="' + meta.getAttribute('property') + '"]');
-                            if (existing) {
-                                existing.setAttribute('content', meta.getAttribute('content'));
-                            } else {
-                                document.head.appendChild(meta.cloneNode(true));
-                            }
-                        });
-
-                        // Update URL without page reload
-                        window.history.replaceState({}, '', path);
-
-                        // Re-initialize any page-specific scripts if needed
-                        // (add specific initialization code here if needed)
-                    })
-                    .catch(function(error) {
-                        console.log('Routing error:', error);
-                    });
-            }
-        }
-
-        // Handle initial page load
-        document.addEventListener('DOMContentLoaded', function() {
-            var currentPath = window.location.pathname;
-            if (routes[currentPath.replace(/\/$/, '')]) {
-                // If we're on a clean URL that needs routing, handle it
-                handleRoute(currentPath);
-            }
-        });
-
-        // Intercept link clicks for clean URL navigation
-        document.addEventListener('click', function(e) {
-            var link = e.target.closest('a');
-            if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
-                var href = link.getAttribute('href').replace(/\/$/, ''); // Remove trailing slash
-                if (routes[href]) {
-                    e.preventDefault();
-                    handleRoute(href);
-                }
-            }
-        });
-
-        // Handle browser back/forward buttons
-        window.addEventListener('popstate', function() {
-            var path = window.location.pathname;
-            if (routes[path.replace(/\/$/, '')]) {
-                handleRoute(path);
-            } else if (path === '/' || path === '/index.html') {
-                // Reload the home page
-                window.location.reload();
-            }
-        });
-    })();
-    </script>
 </body>
 
 </html>
