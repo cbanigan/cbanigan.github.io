@@ -8,9 +8,9 @@
     <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="description">
     <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="og:description">
     {% if backgroundImage %}
-    <link rel="preload" as="image" href="images/{{ backgroundImage }}">
+    <link rel="preload" as="image" href="/_images/{{ backgroundImage }}">
     {% endif %}
-	<link rel="stylesheet" media="screen" href="style/main.css">
+	<link rel="stylesheet" media="screen" href="/style/main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 
@@ -30,13 +30,13 @@
 <body>
 	<div id="wrapper">
         <nav>
-            <a href="/" aria-label="homepage"><img class="logo julius" src="images/white-logo.png" alt="" width="100px" height="100px"></a>
+            <a href="/" aria-label="homepage"><img class="logo julius" src="/_images/white-logo.png" alt="" width="100px" height="100px"></a>
             <div class="menu julius">
                 <ul class="main-list">
-                    <li class="main-list-item"><a href="/">Home</a></li>
-                    <li class="main-list-item"><a href="/about"{% if page == 'about' %} ><span class="selected">About</span></a>{% else %}>About</a>{% endif %}</li>
-                    <li class="main-list-item"><a href="/projects"{% if page == 'projects' %} ><span class="selected">Projects</span></a>{% else %}>Projects</a>{% endif %}</li>
-                    <li class="main-list-item"><a href="/resume"{% if page == 'resume' %} ><span class="selected">Resume</span></a>{% else %}>Resume</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/"{% if currentPage == 'home' %} ><span class="selected">Home</span></a>{% else %}>Home</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/about"{% if currentPage == 'about' %} ><span class="selected">About</span></a>{% else %}>About</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/projects"{% if currentPage == 'projects' %} ><span class="selected">Projects</span></a>{% else %}>Projects</a>{% endif %}</li>
+                    <li class="main-list-item"><a href="/resume"{% if currentPage == 'resume' %} ><span class="selected">Resume</span></a>{% else %}>Resume</a>{% endif %}</li>
 	           </ul>
             </div>
         </nav>

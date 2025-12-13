@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colin Banigan | About</title>
+    <meta content="Colin Banigan | About" property="og:title">
+    <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="description">
+    <meta content="Software Engineer @ Instacart 🥕 | Growth Engineering 🚀" name="og:description">
+    
+    <link rel="preload" as="image" href="/_images/about-background.jpg">
+    
+	<link rel="stylesheet" media="screen" href="/style/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap">
+
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i&display=swap">
+    </noscript>
+</head>
+<body>
+	<div id="wrapper">
+        <nav>
+            <a href="/" aria-label="homepage"><img class="logo julius" src="/_images/white-logo.png" alt="" width="100px" height="100px"></a>
+            <div class="menu julius">
+                <ul class="main-list">
+                    <li class="main-list-item"><a href="/">Home</a></li>
+                    <li class="main-list-item"><a href="/about" ><span class="selected">About</span></a></li>
+                    <li class="main-list-item"><a href="/projects">Projects</a></li>
+                    <li class="main-list-item"><a href="/resume">Resume</a></li>
+	           </ul>
+            </div>
+        </nav>
+
+        
+        <header class="about-background">
+            <h1 class="name julius animate-pop-in">Colin Banigan</h1>
+            <div class="border-box julius animate-pop-in">
+                <center><span class="dev julius">Software Engineer</span></center>
+            </div>
+        </header>
+
+        <div class="mini-header">
+            <h2 class="mini-header-text julius">
+                About Me
+            </h2>
+            <div class="mini-header-bar"></div>
+        </div>
+
+        <div class="flex-box about block-text">
+            <div class="flex-item about-image">
+                <img class="flex-image circle" src="/_images/profile-pic@4x.jpg" alt="profile picture" srcset="/_images/profile-pic@1x.jpg, /_images/profile-pic@1.5x.jpg 1.5x, /_images/profile-pic@2x.jpg 2x, /_images/profile-pic@3x.jpg 3x, /_images/profile-pic@4x.jpg 4x" width="250px" height="250px">
+            </div>
+            <div class="flex-item about-description">
+                Hello! I am a full-stack software engineer at Instacart, focusing on improving incremental user conversion within Growth Engineering. In my past role, I was a data engineer at Capital One, focusing on creating ETL pipelines to support the Financial Services Data Lake by transitioning files from Amazon S3 to Snowflake via Apache Spark. Previously, I was a graduate student at Georgia Tech, as well as an undergraduate student at Texas A&amp;M University pursuing degrees in Computer Science. Throughout my life, I have been fascinated by creative arts, whether that be art, music, or even design. Great design strikes a chord with me, and I strive to implement solid design choices throughout my professional work. I strive to create user experiences which are easy-to-use and effective, despite network and device limitations.
+            </div>
+            <div class="flex-item about-stats">
+                <h3>Name:</h3>
+                <p>Colin Banigan</p>
+                <h3>Age:</h3>
+                <p>26</p>
+                <h3>Location:</h3>
+                <p>San Francisco, CA</p>
+            </div>
+        </div>
+
+
+
+                <div id="top-footer">
+            <h2 class="mini-header-text white julius">Contact</h2>
+            <div class="mini-header-bar"></div>
+            <div class="email">
+                <h3 class="social">Send me a note.</h3>
+                <a href="mailto:colinbanigan@gmail.com"><img class="email-icon" src="/_images/envelope.svg" title="Email" width="64px" height="36px"></a>
+            </div>
+            <div>
+                <h3 class="social">Find me on social media.</h3>
+            </div>
+            <ul class="social-media">
+                <li><a href="https://www.facebook.com/Bananigan"><img src="/_images/facebook.svg" title="Facebook" width="30px" height="30px"></a></li>
+                <li><a href="https://www.linkedin.com/in/colin-banigan"><img src="/_images/linkedin.svg" title="LinkedIn" width="30px" height="30px"></a></li>
+                <li><a href="https://www.instagram.com/colinbanigan/"><img src="/_images/instagram.svg" title="Instagram" width="30px" height="30px"></a></li>
+                <li><a href="https://github.com/cbanigan"><img src="/_images/github.svg" title="GitHub" width="30px" height="30px"></a></li>
+                <li><a href="https://open.spotify.com/user/colinbanigan"><img src="/_images/spotify.svg" title="Spotify" width="30px" height="30px"></a></li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class="copyright">© 2025 Colin Banigan. All rights reserved.</div>
+        </footer>
+
+
+	</div>
+</body>
+
+</html>

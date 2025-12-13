@@ -1,22 +1,27 @@
 module.exports = function (eleventyConfig) {
   // Copy static assets
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("videos");
-  eleventyConfig.addPassthroughCopy("resume");
+  eleventyConfig.addPassthroughCopy("_images");
+  eleventyConfig.addPassthroughCopy("_videos");
+  eleventyConfig.addPassthroughCopy("_resume");
   eleventyConfig.addPassthroughCopy("style");
-  // Copy HTML files as static (don't process them)
-  eleventyConfig.addPassthroughCopy("*.html");
+  // Copy static HTML files
+  eleventyConfig.addPassthroughCopy("index.original.html");
   // Copy GitHub Pages marker
   eleventyConfig.addPassthroughCopy(".nojekyll");
 
   // Watch for changes
   eleventyConfig.addWatchTarget("style/");
 
+  // Allow clean URLs without file extensions
+  eleventyConfig.configureErrorReporting({
+    allowMissingExtensions: true,
+  });
+
   return {
     dir: {
-      input: ".",
+      input: "pages",
       output: "_site",
-      includes: "_includes",
+      includes: "../_includes",
     },
     templateFormats: ["njk", "md"],
     htmlTemplateEngine: "njk",
