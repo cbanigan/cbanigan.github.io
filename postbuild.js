@@ -5,10 +5,10 @@ const path = require('path');
 const filesToRename = [
   'about',
   'resume',
-  'projects',
-  'research',
-  'battleship',
-  'after-effects'
+  'projects/index',
+  'projects/research',
+  'projects/battleship',
+  'projects/after-effects'
 ];
 
 filesToRename.forEach(filename => {
