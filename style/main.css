@@ -197,16 +197,17 @@ footer {
 
 a:link {
     text-decoration: none;
-    color: var(--color-grayscale-00);
+    color: var(--color-grayscale-70);
 }
 
 a:visited {
-    color: var(--color-grayscale-00);
+    color: var(--color-grayscale-70);
 }
 
 a:hover {
     text-decoration: underline;
-    color: var(--color-grayscale-00);
+    color: var(--color-grayscale-70);
+    opacity: 0.9;
 }
 
 @keyframes pop-in {
@@ -396,6 +397,7 @@ video {
 
 .item-description-list {
     margin-left: var(--spacing-s16);
+    margin-top: var(--spacing-s16);
 }
 
 .resume-item-sidebar {
@@ -420,10 +422,6 @@ video {
 
     .resume-items {
         margin-top: var(--spacing-s32);
-    }
-
-    .resume-item {
-        margin-left: var(--spacing-s16);
     }
 
     .block-text {
@@ -481,5 +479,42 @@ video {
     .intro-text {
         margin-top: calc(var(--spacing-s2) * -1);
         margin-bottom: var(--spacing-s64);
+    }
+}
+
+@media (max-width: 699px) {
+    .resume-item-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: var(--spacing-s16);
+        margin-right: var(--spacing-s16);
+    }
+
+    .resume-item {
+        display: contents;
+    }
+
+    .item-name {
+        order: 1;
+    }
+
+    .item-info {
+        order: 2;
+    }
+
+    .resume-item-sidebar {
+        order: 3;
+        display: flex;
+        justify-content: space-between;
+        margin: var(--spacing-s16) 0;
+    }
+
+    .item-description {
+        order: 4;
+        padding-top: 8px;
+    }
+
+    .item-dates {
+        font-weight: bold;
     }
 }
