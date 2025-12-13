@@ -64,6 +64,7 @@ header {
 
 .border-box {
     width: 100%;
+    text-align: center;
 }
 
 .dev {
@@ -258,6 +259,12 @@ a:hover {
     text-align: center;
 }
 
+.center-block {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .project-text {
     margin-top: -4em;
 }
@@ -287,6 +294,7 @@ a:hover {
 .flex-item {
     flex: 1;
     padding: 0 20px;
+    text-align: center;
 }
 
 .flex-image {
@@ -296,6 +304,14 @@ a:hover {
 .about {
     margin: auto;
     max-width: 1000px;
+}
+
+.about-description {
+    text-align: left;
+}
+
+.about-stats {
+    text-align: left;
 }
 
 .projects {
@@ -444,6 +460,7 @@ video {
     
     .about-description {
         order: 3;
+        text-align: left;
     }
     
     .about-stats {
