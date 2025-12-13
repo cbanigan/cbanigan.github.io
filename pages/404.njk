@@ -1,0 +1,77 @@
+---
+layout: base.njk
+title: "Page Not Found"
+permalink: /404.html
+---
+
+<div id="dynamic-content">
+    <div class="block-text center-text">
+        <h1>404 - Page Not Found</h1>
+        <p>The page you're looking for doesn't exist.</p>
+        <a href="/">Go back home</a>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Clean URL routing for direct navigation on GitHub Pages
+    var path = window.location.pathname.replace(/\/$/, ''); // Remove trailing slash
+
+    // Define valid clean URL paths and their corresponding files
+    var routes = {
+        '/about': '/about',
+        '/projects': '/projects',
+        '/resume': '/resume',
+        '/research': '/research',
+        '/battleship': '/battleship',
+        '/after-effects': '/after-effects'
+    };
+
+    // If this is a valid clean URL, fetch and display the content
+    if (routes[path] && path !== '/') {
+        fetch(routes[path])
+            .then(function(response) {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Page not found');
+            })
+            .then(function(html) {
+                // Parse the HTML
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, 'text/html');
+
+                // Extract the main content
+                var wrapper = doc.querySelector('#wrapper');
+                var title = doc.querySelector('title');
+
+                if (wrapper) {
+                    // Replace the 404 content with the actual page content
+                    document.querySelector('#dynamic-content').innerHTML = wrapper.outerHTML;
+
+                    // Update the page title
+                    if (title) {
+                        document.title = title.textContent;
+                    }
+
+                    // Update meta tags
+                    var metaTags = doc.querySelectorAll('meta[property]');
+                    metaTags.forEach(function(meta) {
+                        var existing = document.querySelector('meta[property="' + meta.getAttribute('property') + '"]');
+                        if (existing) {
+                            existing.setAttribute('content', meta.getAttribute('content'));
+                        } else {
+                            document.head.appendChild(meta.cloneNode(true));
+                        }
+                    });
+
+                    // Update URL to clean version
+                    window.history.replaceState({}, '', path);
+                }
+            })
+            .catch(function() {
+                console.log('Failed to load content for:', path);
+            });
+    }
+})();
+</script>
