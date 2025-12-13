@@ -1,4 +1,4 @@
-export function calculateAge(birthDate: string): number {
+function calculateAge(birthDate: string): number {
   const today = new Date();
   const birth = new Date(birthDate);
   const age = today.getFullYear() - birth.getFullYear();
