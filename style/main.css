@@ -28,22 +28,22 @@ html {
 }
 
 .index-background {
-    background: url(../images/index-background.jpg) no-repeat center center fixed;
+    background: url(/_images/index-background.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
 .about-background {
-    background: url(../images/about-background.jpg) no-repeat center center fixed;
+    background: url(/_images/about-background.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
 .projects-background {
-    background: url(../images/projects-background.jpg) no-repeat center center fixed;
+    background: url(/_images/projects-background.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
 .resume-background {
-    background: url(../images/resume-background.jpg) no-repeat center center fixed;
+    background: url(/_images/resume-background.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 

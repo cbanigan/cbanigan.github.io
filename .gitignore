@@ -46,10 +46,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Eleventy build output
-_site/
-
 # Dependencies
 node_modules/
 
-# Package lock
+# Build output
+_site/
